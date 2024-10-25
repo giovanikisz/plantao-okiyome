@@ -155,7 +155,7 @@ func updateMembro(c *fiber.Ctx) error {
 	}
 
 	filter := bson.M{"_id": objectID}
-	if registaOkiyome.Okiyomes == 14 {
+	if registaOkiyome.Okiyomes == 99 {
 		okiyome = 0
 	}
 	pontosAtualizado := pontosAtual + registaOkiyome.Pontos

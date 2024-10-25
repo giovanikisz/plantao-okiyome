@@ -96,7 +96,7 @@ function Count() {
       points: 15,
     },
     {
-      value: 14,
+      value: 99,
       label: "Trouxe convidado",
       points: 5,
     },
