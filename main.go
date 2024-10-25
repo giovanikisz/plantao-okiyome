@@ -46,6 +46,8 @@ func main() {
 	}
 
 	MONGODB_URI := os.Getenv(("MONGODB_URI"))
+	DATABASE := os.Getenv(("DATABASE"))
+	COLLECTION := os.Getenv(("COLLECTION"))
 	clientOptions := options.Client().ApplyURI(MONGODB_URI)
 	client, err := mongo.Connect(context.Background(), clientOptions)
 
@@ -61,7 +63,7 @@ func main() {
 	}
 	fmt.Println("Connected to MONGODB ATLAS")
 
-	collection = client.Database("plantao_okiyome_db").Collection("membros")
+	collection = client.Database(DATABASE).Collection(COLLECTION)
 
 	app := fiber.New()
 
