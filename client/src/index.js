@@ -10,11 +10,11 @@ import "./index.css";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/register",
     element: <Register />,
   },
   {
-    path: "/count",
+    path: "/",
     element: <Count />,
   },
 ]);
