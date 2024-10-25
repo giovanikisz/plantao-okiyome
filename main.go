@@ -71,14 +71,21 @@ func main() {
 	// 	AllowHeaders: "Origin,Content-Type,Accept",
 	// }))
 
-	PORT := os.Getenv("PORT")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "5000"
+	}
+
+	if os.Getenv("ENV") == "production" {
+		app.Static("/", "./client/dist")
+	}
 
 	// app.Get("/api/membro/:id", getMembro)
 	app.Get("/api/membros", getMembros)
 	app.Post("api/register", createMembro)
 	app.Put("/api/okiyome/:id", updateMembro)
 
-	log.Fatal(app.Listen(":" + PORT))
+	log.Fatal(app.Listen(":" + port))
 }
 
 func getPontos(id primitive.ObjectID) (int, error) {
